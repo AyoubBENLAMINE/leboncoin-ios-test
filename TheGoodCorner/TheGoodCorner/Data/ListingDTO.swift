@@ -1,7 +1,7 @@
 import Foundation
 
 /// Raw JSON shape of `GET /listings`, as described in server/swagger.yaml.
-struct ListingFeedDTO: Decodable {
+nonisolated struct ListingFeedDTO: Decodable {
     let total: Int
     let page: Int
     let limit: Int
@@ -11,7 +11,7 @@ struct ListingFeedDTO: Decodable {
 
 /// Raw JSON shape of one listing.
 /// Property names must match the snake_case keys once converted to camelCase.
-struct ListingDTO: Decodable {
+nonisolated struct ListingDTO: Decodable {
     let id: Int
     let categoryId: Int
     let title: String
@@ -21,13 +21,13 @@ struct ListingDTO: Decodable {
     let isUrgent: Bool
     let imagesUrl: ImagesDTO?
 
-    struct ImagesDTO: Decodable {
+    nonisolated struct ImagesDTO: Decodable {
         let small: String?
         let thumb: String?
     }
 }
 
-extension ListingDTO {
+nonisolated extension ListingDTO {
     /// Converts the raw API object into the clean domain model.
     func toDomain(baseURL: URL) -> Listing {
         Listing(

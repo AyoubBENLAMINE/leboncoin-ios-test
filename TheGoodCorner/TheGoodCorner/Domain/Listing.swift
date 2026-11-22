@@ -2,7 +2,7 @@ import Foundation
 
 /// A classified ad, as used by the app.
 /// Clean domain model: no JSON naming, no server-relative paths.
-struct Listing: Identifiable, Hashable, Sendable {
+nonisolated struct Listing: Identifiable, Hashable, Sendable {
     let id: Int
     let categoryID: Int
     let title: String
@@ -15,7 +15,7 @@ struct Listing: Identifiable, Hashable, Sendable {
 
 /// Image URLs of a listing. Each one is optional:
 /// the API may return no image at all, or `null` for a given size.
-struct ListingImages: Hashable, Sendable {
+nonisolated struct ListingImages: Hashable, Sendable {
     let small: URL?
     let thumb: URL?
 
